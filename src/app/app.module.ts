@@ -1,12 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { ContactUsComponent } from './contact-us.component';
+import { HomepageComponent } from './homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdToolbarModule, MdTabsModule, MdInputModule, MdMenuModule } from '@angular/material';
+import { RouterModule }   from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomepageComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -14,9 +19,20 @@ import { MdToolbarModule, MdTabsModule, MdInputModule, MdMenuModule } from '@ang
     MdToolbarModule,
     MdTabsModule,
     MdInputModule,
-    MdMenuModule
+    MdMenuModule,
+    RouterModule.forRoot([
+      {
+        path: 'contact',
+        component: ContactUsComponent
+      },
+      {
+        path: '',
+        component: HomepageComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
