@@ -3,14 +3,19 @@
     <md-input-container>
         <input mdInput required name="name"
             placeholder="Name" type="text"
+            (keyup)="validate()"
             [(ngModel)]="form.name">
     </md-input-container>
     <md-input-container>
         <input mdInput required name="message"
-                placeholder="Message" type="text"
-                [disabled]="!form.name">
+            placeholder="Message" type="text"
+            (keyup)="validate()"
+            [disabled]="!form.name"
+            [(ngModel)]="form.message">
     </md-input-container>
-    <i class="material-icons">add</i>
-    <i class="material-icons">remove</i>
-    <button md-button>Send</button>
+    <label class="mat-subheading-1" for="form-count">Importance</label>
+    <i (click)="decrease()" class="material-icons">remove</i>
+    <span id="form-count">{{ form.count }}</span>
+    <i (click)="increase()" class="material-icons">add</i>
+    <button [disabled]="form.error" (click)="send()" md-button>Send</button>
 </form>

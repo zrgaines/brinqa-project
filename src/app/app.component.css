@@ -10,3 +10,8 @@
 span i {
     font-size: 48px;
 }
+
+form .mat-input-container {
+    display: block;
+    width: 30%;
+}
