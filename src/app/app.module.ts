@@ -6,6 +6,7 @@ import { HomepageComponent } from './homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdToolbarModule, MdTabsModule, MdInputModule, MdMenuModule } from '@angular/material';
 import { RouterModule }   from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RouterModule }   from '@angular/router';
     MdTabsModule,
     MdInputModule,
     MdMenuModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'contact',

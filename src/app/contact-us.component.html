@@ -1,1 +1,16 @@
-<h1>contact us</h1>
+<h1 class="mat-h1">Contact Us</h1>
+<form>
+    <md-input-container>
+        <input mdInput required name="name"
+            placeholder="Name" type="text"
+            [(ngModel)]="form.name">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput required name="message"
+                placeholder="Message" type="text"
+                [disabled]="!form.name">
+    </md-input-container>
+    <i class="material-icons">add</i>
+    <i class="material-icons">remove</i>
+    <button md-button>Send</button>
+</form>

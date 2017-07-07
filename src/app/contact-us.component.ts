@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 
 export class ContactUsComponent {
   title = 'Contact Us';
+  form = {
+      name: '',
+      message: '',
+      count: 0
+  }
 }
