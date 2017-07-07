@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdToolbarModule, MdTabsModule, MdInputModule } from '@angular/material';
+import { MdToolbarModule, MdTabsModule, MdInputModule, MdMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { MdToolbarModule, MdTabsModule, MdInputModule } from '@angular/material'
     BrowserAnimationsModule,
     MdToolbarModule,
     MdTabsModule,
-    MdInputModule
+    MdInputModule,
+    MdMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
