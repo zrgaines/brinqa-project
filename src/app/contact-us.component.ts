@@ -1,4 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, ControlValueAccessor } from '@angular/forms';
+
+function validateImportance(i: FormControl) {
+    return i.value % 2 !== 0 ? null : {
+        validateImportance: {
+            valid: false
+        }
+    }
+}
 
 @Component({
   selector: 'contact-us',
@@ -6,28 +15,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class ContactUsComponent {
+export class ContactUsComponent implements OnInit{
   title = 'Contact Us';
-  form = {
-      name: '',
-      message: '',
-      count: 0,
-      error: true
+  form: FormGroup;
+  importance = 0;
+
+  constructor() {}
+  ngOnInit() {
+      this.form = new FormGroup({
+          name: new FormControl('', [Validators.required]),
+          message: new FormControl({value: '', disabled: name !== ''}, [Validators.required]),
+          importance: new FormControl(0, validateImportance)
+      })
   }
-  increase() {
-      this.form.count++;
-      this.validate();
+
+  increment() {
+    this.importance = this.importance + 1;
+    this.form.patchValue({ importance: this.importance });
   }
-  decrease() {
-      this.form.count--;
-      this.validate();
+
+  decrement() {
+    this.importance = this.importance - 1;
+    this.form.patchValue({ importance: this.importance });
   }
-  validate() {
-      if (this.form.count % 2 != 0 && this.form.name) {
-          this.form.error = false;
-      } else { this.form.error = true; }
-  }
-  send() {
-      alert('Message sent, thanks!');
+
+  onSubmit() {
+    alert('Thanks for submitting your message!');
   }
 }

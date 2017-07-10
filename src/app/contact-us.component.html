@@ -1,21 +1,18 @@
 <h1 class="mat-h1">Contact Us</h1>
-<form>
+<form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="form">
     <md-input-container>
         <input mdInput required name="name"
             placeholder="Name" type="text"
-            (keyup)="validate()"
-            [(ngModel)]="form.name">
+            formControlName="name">
     </md-input-container>
     <md-input-container>
         <input mdInput required name="message"
-            placeholder="Message" type="text"
-            (keyup)="validate()"
-            [disabled]="!form.name"
-            [(ngModel)]="form.message">
+            placeholder="Message" type="textarea"
+            formControlName="message">
     </md-input-container>
     <label class="mat-subheading-1" for="form-count">Importance</label>
-    <i (click)="decrease()" class="material-icons">remove</i>
-    <span id="form-count">{{ form.count }}</span>
-    <i (click)="increase()" class="material-icons">add</i>
-    <button [disabled]="form.error" (click)="send()" md-button>Send</button>
+    <i (click)="decrement()" class="material-icons">remove</i>
+    <span id="form-count">{{ form.get('importance').value }}</span>
+    <i (click)="increment()" class="material-icons">add</i>
+    <button [disabled]="form.invalid" type="submit" md-button>Send</button>
 </form>
