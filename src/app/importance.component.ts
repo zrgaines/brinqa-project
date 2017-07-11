@@ -4,9 +4,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'importance',
   template: `
-    <button type="button" (click)="increment()">+</button>
-      {{counterValue}}
     <button type="button" (click)="decrement()">-</button>
+      {{counterValue}}
+    <button type="button" (click)="increment()">+</button>
   `,
   providers: [
     {
