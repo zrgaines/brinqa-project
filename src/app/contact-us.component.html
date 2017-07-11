@@ -11,8 +11,6 @@
             formControlName="message">
     </md-input-container>
     <label class="mat-subheading-1" for="form-count">Importance</label>
-    <i (click)="decrement()" class="material-icons">remove</i>
-    <span id="form-count">{{ form.get('importance').value }}</span>
-    <i (click)="increment()" class="material-icons">add</i>
+    <importance formControlName="importance"></importance>
     <button [disabled]="form.invalid" type="submit" md-button>Send</button>
 </form>

@@ -29,16 +29,6 @@ export class ContactUsComponent implements OnInit{
       })
   }
 
-  increment() {
-    this.importance = this.importance + 1;
-    this.form.patchValue({ importance: this.importance });
-  }
-
-  decrement() {
-    this.importance = this.importance - 1;
-    this.form.patchValue({ importance: this.importance });
-  }
-
   onSubmit() {
     alert('Thanks for submitting your message!');
   }
